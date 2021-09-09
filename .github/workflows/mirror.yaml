@@ -7,11 +7,12 @@ on:
 
 jobs:
   get_template:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@v2-beta
-      - uses: spyoungtech/mirror-action@master
+      - name: mirror
+        id: mirror
+        uses: bridgelightcloud/github-mirror-action@v1
         with:
-          REMOTE: 'https://github.com/ros-controls/ros2_control.git'
-          GIT_USERNAME: wam-v-tan
-          GIT_PASSWORD: ${{ secrets.WAMV_TAN_BOT_SECRET }}
+          origin: 'https://github.com/ros-controls/ros2_control.git'
+          GITHUB_TOKEN: ${{ secrets.WAMV_TAN_BOT_SECRET }}
