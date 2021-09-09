@@ -1,0 +1,17 @@
+name: mirror
+
+on:
+  schedule:
+  - cron: 0 0 * * *
+  workflow_dispatch:
+
+jobs:
+  get_template:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2-beta
+      - uses: spyoungtech/mirror-action@master
+        with:
+          REMOTE: 'https://github.com/ros-controls/ros2_control.git'
+          GIT_USERNAME: wam-v-tan
+          GIT_PASSWORD: ${{ secrets.WAMV_TAN_BOT_SECRET }}
