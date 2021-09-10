@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  get_template:
-    runs-on: ubuntu-16.04
+  mirror:
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2-beta
       - name: mirror
